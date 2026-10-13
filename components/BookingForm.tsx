@@ -4,16 +4,48 @@ import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { FiCalendar, FiPhone, FiUser } from "react-icons/fi";
 
-export function BookingForm() {
-  const [submitted, setSubmitted] = useState(false);
+type SubmitState = "idle" | "loading" | "success" | "error";
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+export function BookingForm() {
+  const [state, setState] = useState<SubmitState>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setState("loading");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: fd.get("name"),
+          phone: fd.get("phone"),
+          checkIn: fd.get("checkIn"),
+          checkOut: fd.get("checkOut"),
+        }),
+      });
+
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error ?? "Could not submit booking. Please try again.");
+      }
+
+      setState("success");
+      form.reset();
+    } catch (err) {
+      setState("error");
+      setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
+    }
   }
 
   const fieldClass =
-    "w-full rounded-xl border border-stone-200 bg-white px-3 py-2.5 text-sm text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-gold focus:ring-2 focus:ring-gold/25";
+    "w-full rounded-xl border border-stone-200 bg-white px-3 py-2.5 text-sm text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-gold focus:ring-2 focus:ring-gold/25 disabled:opacity-60";
 
   const labelClass =
     "mb-1 flex items-center gap-1.5 font-serif text-xs font-semibold text-maroon";
@@ -41,6 +73,7 @@ export function BookingForm() {
               type="text"
               placeholder="Your full name"
               className={fieldClass}
+              disabled={state === "loading"}
             />
           </label>
           <label className="block md:flex-1">
@@ -54,6 +87,7 @@ export function BookingForm() {
               type="tel"
               placeholder="Mobile number"
               className={fieldClass}
+              disabled={state === "loading"}
             />
           </label>
         </div>
@@ -64,28 +98,46 @@ export function BookingForm() {
               <FiCalendar className="text-gold" aria-hidden />
               Check-in*
             </span>
-            <input required name="checkIn" type="date" className={fieldClass} />
+            <input
+              required
+              name="checkIn"
+              type="date"
+              className={fieldClass}
+              disabled={state === "loading"}
+            />
           </label>
           <label className="block">
             <span className={`${labelClass} text-[10px] sm:text-xs`}>
               <FiCalendar className="text-gold" aria-hidden />
               Check-out*
             </span>
-            <input required name="checkOut" type="date" className={fieldClass} />
+            <input
+              required
+              name="checkOut"
+              type="date"
+              className={fieldClass}
+              disabled={state === "loading"}
+            />
           </label>
           <div className="flex items-end md:col-span-1">
             <button
               type="submit"
-              className="h-[42px] w-full rounded-xl bg-maroon px-3 font-serif text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-maroon-dark sm:text-sm md:px-4"
+              disabled={state === "loading"}
+              className="h-[42px] w-full rounded-xl bg-maroon px-3 font-serif text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-maroon-dark disabled:cursor-not-allowed disabled:opacity-70 sm:text-sm md:px-4"
             >
-              Submit
+              {state === "loading" ? "Sending…" : "Submit"}
             </button>
           </div>
         </div>
       </form>
-      {submitted ? (
+      {state === "success" ? (
         <p className="mt-3 text-center text-sm font-medium text-emerald-700" role="status">
           Thank you! Our team will confirm your booking shortly.
+        </p>
+      ) : null}
+      {state === "error" ? (
+        <p className="mt-3 text-center text-sm font-medium text-red-700" role="alert">
+          {errorMessage}
         </p>
       ) : null}
     </motion.div>

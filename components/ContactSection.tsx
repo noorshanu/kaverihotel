@@ -5,16 +5,48 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/SectionHeading";
 import { site } from "@/lib/site-data";
 
-export function ContactSection() {
-  const [sent, setSent] = useState(false);
+type SubmitState = "idle" | "loading" | "success" | "error";
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+export function ContactSection() {
+  const [state, setState] = useState<SubmitState>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSent(true);
+    setState("loading");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: fd.get("name"),
+          phone: fd.get("phone"),
+          email: fd.get("email"),
+          message: fd.get("message"),
+        }),
+      });
+
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error ?? "Could not send message. Please try again.");
+      }
+
+      setState("success");
+      form.reset();
+    } catch (err) {
+      setState("error");
+      setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
+    }
   }
 
   const inputClass =
-    "w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/20";
+    "w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 disabled:opacity-60";
 
   return (
     <section id="contact" className="scroll-mt-24 bg-cream px-4 py-20 sm:px-6 lg:px-8">
@@ -34,16 +66,35 @@ export function ContactSection() {
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block">
               <span className="mb-1 block text-sm font-semibold text-maroon">Name*</span>
-              <input required name="name" className={inputClass} placeholder="Your name" />
+              <input
+                required
+                name="name"
+                className={inputClass}
+                placeholder="Your name"
+                disabled={state === "loading"}
+              />
             </label>
             <label className="block">
               <span className="mb-1 block text-sm font-semibold text-maroon">Phone*</span>
-              <input required name="phone" type="tel" className={inputClass} placeholder="Phone" />
+              <input
+                required
+                name="phone"
+                type="tel"
+                className={inputClass}
+                placeholder="Phone"
+                disabled={state === "loading"}
+              />
             </label>
           </div>
           <label className="block">
             <span className="mb-1 block text-sm font-semibold text-maroon">Email</span>
-            <input name="email" type="email" className={inputClass} placeholder="Email (optional)" />
+            <input
+              name="email"
+              type="email"
+              className={inputClass}
+              placeholder="Email (optional)"
+              disabled={state === "loading"}
+            />
           </label>
           <label className="block">
             <span className="mb-1 block text-sm font-semibold text-maroon">Message*</span>
@@ -53,18 +104,25 @@ export function ContactSection() {
               rows={4}
               className={inputClass}
               placeholder="Tell us about your stay or event..."
+              disabled={state === "loading"}
             />
           </label>
           <button
             type="submit"
-            className="w-full rounded-xl bg-maroon py-3 font-serif font-bold uppercase tracking-wide text-cream transition hover:bg-maroon-dark sm:w-auto sm:px-10"
+            disabled={state === "loading"}
+            className="w-full rounded-xl bg-maroon py-3 font-serif font-bold uppercase tracking-wide text-cream transition hover:bg-maroon-dark disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:px-10"
           >
-            Send Message
+            {state === "loading" ? "Sending…" : "Send Message"}
           </button>
-          {sent ? (
+          {state === "success" ? (
             <p className="text-sm font-medium text-emerald-700" role="status">
               Message received. Call {site.phoneDisplay} or WhatsApp {site.phoneAltDisplay}{" "}
               for urgent bookings.
+            </p>
+          ) : null}
+          {state === "error" ? (
+            <p className="text-sm font-medium text-red-700" role="alert">
+              {errorMessage}
             </p>
           ) : null}
         </motion.form>

@@ -1,18 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaBed } from "react-icons/fa";
 import { SectionHeading } from "@/components/SectionHeading";
 import { rooms } from "@/lib/site-data";
-
-function RoomImagePlaceholder({ name }: { name: string }) {
-  return (
-    <div className="relative flex h-full min-h-[220px] items-center justify-center bg-gradient-to-br from-maroon/20 via-gold/15 to-cream">
-      <FaBed className="text-5xl text-maroon/35" aria-hidden />
-      <span className="sr-only">{name} placeholder image</span>
-    </div>
-  );
-}
 
 export function RoomsSection() {
   return (
@@ -35,7 +26,13 @@ export function RoomsSection() {
               className="group overflow-hidden rounded-2xl bg-cream shadow-md shadow-stone-200/80 ring-1 ring-stone-100"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
-                <RoomImagePlaceholder name={room.name} />
+                <Image
+                  src={room.image}
+                  alt={room.name}
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/75 to-transparent px-4 pb-3 pt-12">
                   <h3 className="font-serif text-lg font-bold text-white">{room.name}</h3>
                   <p className="text-xs font-semibold text-gold-light">

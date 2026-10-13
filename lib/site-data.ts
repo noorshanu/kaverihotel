@@ -79,25 +79,25 @@ export const rooms = [
   {
     name: "Deluxe Room",
     price: "1,500",
-    image: null as string | null,
+    image: "/images/rooms/dulex.png",
     description: "Spacious AC room with attached bath, ideal for couples.",
   },
   {
     name: "Economy Room",
     price: "1,300",
-    image: null,
+    image: "/images/rooms/eco.png",
     description: "Comfortable stay with essential amenities at great value.",
   },
   {
     name: "Family Room",
     price: "2,000",
-    image: null,
+    image: "/images/rooms/familly.png",
     description: "Extra space for families and small groups visiting Bokaro.",
   },
   {
     name: "Dormitory",
     price: "500",
-    image: null,
+    image: "/images/rooms/dormetry.png",
     description: "Budget-friendly shared accommodation for groups and guests.",
   },
 ] as const;
@@ -200,7 +200,41 @@ export const testimonials = [
   },
 ] as const;
 
-export const galleryPlaceholders = Array.from({ length: 6 }, (_, i) => ({
-  id: i + 1,
-  label: `Gallery ${i + 1}`,
-}));
+export const galleryItems = [
+  {
+    id: 1,
+    src: "/images/rooms/dulex.png",
+    label: "Deluxe Room",
+    category: "Rooms",
+  },
+  {
+    id: 2,
+    src: "/images/rooms/eco.png",
+    label: "Economy Room",
+    category: "Rooms",
+  },
+  {
+    id: 3,
+    src: "/images/rooms/familly.png",
+    label: "Family Room",
+    category: "Rooms",
+  },
+  {
+    id: 4,
+    src: "/images/rooms/dormetry.png",
+    label: "Dormitory",
+    category: "Rooms",
+  },
+  {
+    id: 5,
+    src: "/images/banquite/PHOTO-2026-10-10-15-48-29.jpg",
+    label: "Marriage Lawn & Banquet",
+    category: "Banquet",
+  },
+  {
+    id: 6,
+    src: "/images/banquite/PHOTO-2026-10-10-15-48-37.jpg",
+    label: "Banquet Celebration",
+    category: "Banquet",
+  },
+] as const;
