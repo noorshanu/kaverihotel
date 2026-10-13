@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 
 export function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-24 bg-cream px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+    <section id="about" className="scroll-mt-24 bg-cream px-4 pb-20 pt-10 sm:px-6 md:pt-36 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           title="About Kaveri Palace"

@@ -23,7 +23,7 @@ export function BookingForm() {
       initial={{ opacity: 0, y: 32 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.35 }}
-      className="w-full max-w-5xl rounded-2xl bg-white/95 p-4 shadow-2xl shadow-maroon/25 backdrop-blur sm:p-5 md:p-6"
+      className="mx-auto w-full rounded-2xl bg-white p-4 shadow-2xl shadow-maroon/30 sm:p-5 md:p-6"
     >
       <form
         onSubmit={handleSubmit}

@@ -34,24 +34,15 @@ export function Navbar() {
     >
       <div className="bg-maroon-dark/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <Link href="#home" className="flex min-w-0 items-center gap-3">
+          <Link href="#home" className="shrink-0">
             <Image
               src="/logo.jpeg"
-              alt={`${site.name} logo`}
-              width={56}
-              height={56}
-              className="h-12 w-12 shrink-0 rounded-full border-2 border-gold/80 object-cover sm:h-14 sm:w-14"
+              alt={`${site.name} — ${site.tagline}`}
+              width={80}
+              height={80}
+              className="h-16 w-16 rounded-full border-2 border-gold/80 object-cover sm:h-[4.5rem] sm:w-[4.5rem]"
               priority
             />
-            <div className="min-w-0 leading-tight">
-              <p className="truncate font-serif text-sm font-bold uppercase tracking-wide text-cream sm:text-base">
-                {site.name}
-              </p>
-              <p className="truncate text-[10px] font-medium uppercase tracking-widest text-gold sm:text-xs">
-                {site.tagline}
-              </p>
-              <p className="hidden text-[11px] text-gold/90 sm:block">{site.hindiTagline}</p>
-            </div>
           </Link>
 
           <nav className="hidden items-center gap-6 xl:flex" aria-label="Main">
