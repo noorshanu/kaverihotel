@@ -22,8 +22,8 @@ export function Footer() {
             </div>
           </div>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-cream/85">
-            Premium hotel stays and banquet services in Ayodhya. Comfortable rooms,
-            event spaces, and heartfelt hospitality for every guest.
+            Premium hotel stays and banquet services in Bokaro, Jharkhand. Comfortable
+            rooms, event spaces, and heartfelt hospitality for every guest.
           </p>
         </div>
 
@@ -51,6 +51,11 @@ export function Footer() {
             <li>
               <a href={`tel:${site.phone}`} className="hover:text-gold">
                 {site.phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <a href={`tel:${site.phoneAlt}`} className="hover:text-gold">
+                {site.phoneAltDisplay}
               </a>
             </li>
             <li>

@@ -91,7 +91,7 @@ export function Hero() {
             className="mt-5 text-center"
           >
             <p className="font-serif text-xs uppercase tracking-[0.2em] text-gold-dark">
-              Welcome to Ayodhya
+              Welcome to Bokaro
             </p>
             <h1 className="mt-2 font-serif text-2xl font-bold leading-snug text-maroon sm:text-3xl">
               Discover the Timeless Charm of Kaveri Palace
@@ -141,7 +141,7 @@ export function Hero() {
               transition={{ duration: 0.5 }}
               className="mb-3 font-serif text-sm uppercase tracking-[0.25em] text-gold-light"
             >
-              Welcome to Ayodhya
+              Welcome to Bokaro
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}

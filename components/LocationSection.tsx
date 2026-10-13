@@ -2,8 +2,13 @@
 
 import { motion } from "framer-motion";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import { SectionHeading } from "@/components/SectionHeading";
 import { site } from "@/lib/site-data";
+
+const mapQuery = encodeURIComponent(
+  "Kaveri Palace Jaridih Bazar Bokaro Jharkhand 829114",
+);
 
 export function LocationSection() {
   return (
@@ -11,7 +16,7 @@ export function LocationSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           title="Location"
-          subtitle="Conveniently located for darshan, local sightseeing, and event access."
+          subtitle="Jaridih, Bokaro, Jharkhand — easy access near Jaradih Railway Station."
         />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
@@ -23,12 +28,33 @@ export function LocationSection() {
           >
             <p className="flex items-start gap-3 text-stone-700">
               <FiMapPin className="mt-1 shrink-0 text-gold-dark" aria-hidden />
-              {site.address}
+              <span>
+                <strong className="block text-maroon">{site.name}</strong>
+                {site.addressLine}
+                <br />
+                {site.addressDetail}
+              </span>
             </p>
             <p className="flex items-center gap-3 text-stone-700">
               <FiPhone className="shrink-0 text-gold-dark" aria-hidden />
-              <a href={`tel:${site.phone}`} className="hover:text-maroon">
-                {site.phoneDisplay}
+              <span className="flex flex-col gap-1">
+                <a href={`tel:${site.phone}`} className="hover:text-maroon">
+                  {site.phoneDisplay}
+                </a>
+                <a href={`tel:${site.phoneAlt}`} className="hover:text-maroon">
+                  {site.phoneAltDisplay}
+                </a>
+              </span>
+            </p>
+            <p className="flex items-center gap-3 text-stone-700">
+              <FaWhatsapp className="shrink-0 text-emerald-700" aria-hidden />
+              <a
+                href={`https://wa.me/${site.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-maroon"
+              >
+                WhatsApp {site.phoneAltDisplay}
               </a>
             </p>
             <p className="flex items-center gap-3 text-stone-700">
@@ -47,10 +73,10 @@ export function LocationSection() {
           >
             <iframe
               title="Kaveri Palace location map"
-              className="h-72 w-full border-0 lg:h-full min-h-[288px]"
+              className="h-72 min-h-[288px] w-full border-0 lg:h-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=Ayodhya%20Uttar%20Pradesh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              src={`https://maps.google.com/maps?q=${mapQuery}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
             />
           </motion.div>
         </div>

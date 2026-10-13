@@ -1,14 +1,58 @@
 export const site = {
   name: "Kaveri Palace",
   tagline: "Wedding Venue & Events",
-  hindiTagline: "Stay Close to Tradition",
-  phone: "+919876543210",
-  phoneDisplay: "+91 98765 43210",
-  email: "info@kaveripalace.com",
-  address:
-    "Near Ram Mandir Corridor, Ayodhya, Uttar Pradesh 224123, India",
-  whatsapp: "919876543210",
+  hindiTagline: "Where Every Dream Comes True",
+  phone: "+918521531153",
+  phoneDisplay: "+91 85215 31153",
+  phoneAlt: "+917856815038",
+  phoneAltDisplay: "+91 78568 15038",
+  email: "kaveripalace8@gmail.com",
+  addressLine:
+    "Gandhi Nagar, Jaridih Upper Bazar, Kalali Road, Jaridih Bazar",
+  addressDetail:
+    "Near Jaradih Railway Station · Landmark: Amar Art · Bokaro, Jharkhand 829114, India",
+  addressFull:
+    "Kaveri Palace, Gandhi Nagar, Jaridih Upper Bazar, Kalali Road, Jaridih Bazar, Near Jaradih Railway Station (Landmark: Amar Art), Bokaro, Jharkhand 829114, India",
+  whatsapp: "917856815038",
+  city: "Bokaro",
+  state: "Jharkhand",
 } as const;
+
+export const owner = {
+  name: "Suraj Saw",
+  role: "Owner, Kaveri Palace",
+  image: "/images/banner/PHOTO-2026-10-13-15-59-19.jpg",
+} as const;
+
+export const aboutQuote =
+  "No daughter's dream wedding should remain unfinished because of financial difficulty — every celebration deserves to be historic and unforgettable.";
+
+export const aboutInitiatives = [
+  {
+    title: "50% Grand Discount",
+    description:
+      "A special flat 50% discount on daughter's wedding bookings — our way of supporting families on a sacred occasion.",
+    icon: "discount" as const,
+  },
+  {
+    title: "Easy Installment Plans",
+    description:
+      "Pay in comfortable EMIs with flexible installments — a first-of-its-kind payment ease at a wedding venue in the region.",
+    icon: "emi" as const,
+  },
+  {
+    title: "Historic Celebrations",
+    description:
+      "More than a hall — we help you create a timeless, dignified wedding your family will cherish for generations.",
+    icon: "celebration" as const,
+  },
+  {
+    title: "Where Dreams Come True",
+    description:
+      "Rooms, banquet, lawn, and on-site support under one roof in Jaridih, Bokaro — hospitality with heart.",
+    icon: "palace" as const,
+  },
+] as const;
 
 export const navLinks = [
   { label: "Home", href: "#home" },
@@ -48,13 +92,13 @@ export const rooms = [
     name: "Family Room",
     price: "2,000",
     image: null,
-    description: "Extra space for families and small groups visiting Ayodhya.",
+    description: "Extra space for families and small groups visiting Bokaro.",
   },
   {
     name: "Dormitory",
     price: "500",
     image: null,
-    description: "Budget-friendly shared accommodation for pilgrims & groups.",
+    description: "Budget-friendly shared accommodation for groups and guests.",
   },
 ] as const;
 
@@ -123,12 +167,12 @@ export const serviceCategories = [
 
 export const banquetSlides = [
   {
-    src: "/images/banner/Kaveri Palace Wedding Venue Banner.png",
-    alt: "Banquet hall festive decoration",
+    src: "/images/banquite/PHOTO-2026-10-10-15-48-29.jpg",
+    alt: "Kaveri Palace marriage lawn and banquet setup",
   },
   {
-    src: "/images/banner/Comfortable Stay_ Luxury Room Collection.png",
-    alt: "Event space setup",
+    src: "/images/banquite/PHOTO-2026-10-10-15-48-37.jpg",
+    alt: "Kaveri Palace banquet hall celebration view",
   },
 ] as const;
 
@@ -144,7 +188,7 @@ export const testimonials = [
     name: "Amit Sharma",
     event: "Family Stay",
     quote:
-      "Clean rooms, helpful staff, and a peaceful location near the temple. Perfect for our Ayodhya pilgrimage.",
+      "Clean rooms, helpful staff, and a convenient location in Bokaro. Perfect for our family function.",
     rating: 5,
   },
   {

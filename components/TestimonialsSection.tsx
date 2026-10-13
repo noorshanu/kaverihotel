@@ -11,7 +11,7 @@ export function TestimonialsSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           title="Guest Reviews & Testimonials"
-          subtitle="Trusted by families, pilgrims, and event hosts visiting Ayodhya."
+          subtitle="Trusted by families and event hosts across Bokaro and Jharkhand."
         />
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">

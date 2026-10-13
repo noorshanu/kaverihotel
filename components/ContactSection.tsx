@@ -63,7 +63,8 @@ export function ContactSection() {
           </button>
           {sent ? (
             <p className="text-sm font-medium text-emerald-700" role="status">
-              Message received. Call us at {site.phoneDisplay} for urgent bookings.
+              Message received. Call {site.phoneDisplay} or WhatsApp {site.phoneAltDisplay}{" "}
+              for urgent bookings.
             </p>
           ) : null}
         </motion.form>

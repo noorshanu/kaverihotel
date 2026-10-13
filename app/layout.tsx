@@ -15,9 +15,9 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Kaveri Palace | Hotel & Banquet in Ayodhya",
+  title: "Kaveri Palace | Hotel & Banquet in Bokaro, Jharkhand",
   description:
-    "Kaveri Palace offers premium hotel stays, marriage lawn, and banquet hall services in Ayodhya. Book rooms and events with warm hospitality.",
+    "Kaveri Palace offers premium hotel stays, marriage lawn, and banquet hall in Jaridih, Bokaro, Jharkhand. 50% wedding discount & easy installments.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
