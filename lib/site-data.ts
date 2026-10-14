@@ -241,3 +241,30 @@ export const galleryItems = [
     category: "Banquet",
   },
 ] as const;
+
+export const showcaseVideos = [
+  {
+    id: 1,
+    src: "/images/videos/kaveri-highlights-1.mp4",
+    title: "Kaveri Palace",
+    description: "Property & entrance.",
+  },
+  {
+    id: 2,
+    src: "/images/videos/kaveri-highlights-2.mp4",
+    title: "Rooms",
+    description: "Guest rooms & interiors.",
+  },
+  {
+    id: 3,
+    src: "/images/videos/kaveri-highlights-3.mp4",
+    title: "Banquet & lawn",
+    description: "Wedding and function space.",
+  },
+  {
+    id: 4,
+    src: "/images/videos/kaveri-highlights-4.mp4",
+    title: "Events",
+    description: "Celebrations on site.",
+  },
+] as const;
