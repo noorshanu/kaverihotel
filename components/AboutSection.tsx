@@ -10,6 +10,7 @@ import {
   aboutQuote,
   owner,
   site,
+  weddingBannerImage,
 } from "@/lib/site-data";
 
 const initiativeIcons = {
@@ -25,7 +26,7 @@ export function AboutSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           title="About Kaveri Palace"
-          subtitle="A trusted wedding venue and hotel in Jaridih, Bokaro, Jharkhand — where hospitality meets heart."
+          subtitle="A trusted wedding venue and hotel in Jarangdih, Bokaro, Jharkhand — where hospitality meets heart."
         />
 
         <motion.blockquote
@@ -48,7 +49,7 @@ export function AboutSection() {
             className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl shadow-maroon/10"
           >
             <Image
-              src="/images/banner/Kaveri Palace Wedding Venue Banner.png"
+              src={weddingBannerImage}
               alt="Kaveri Palace wedding venue"
               fill
               className="object-cover"

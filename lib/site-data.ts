@@ -8,11 +8,11 @@ export const site = {
   phoneAltDisplay: "+91 78568 15038",
   email: "kaveripalace8@gmail.com",
   addressLine:
-    "Gandhi Nagar, Jaridih Upper Bazar, Kalali Road, Jaridih Bazar",
+    "Gandhi Nagar, Jarangdih Upper Bazar, Kalali Road, Jarangdih Bazar",
   addressDetail:
-    "Near Jaradih Railway Station · Landmark: Amar Art · Bokaro, Jharkhand 829114, India",
+    "Near Jarangdih Railway Station · Landmark: Amar Art · Bokaro, Jharkhand 829114, India",
   addressFull:
-    "Kaveri Palace, Gandhi Nagar, Jaridih Upper Bazar, Kalali Road, Jaridih Bazar, Near Jaradih Railway Station (Landmark: Amar Art), Bokaro, Jharkhand 829114, India",
+    "Kaveri Palace, Gandhi Nagar, Jarangdih Upper Bazar, Kalali Road, Jarangdih Bazar, Near Jarangdih Railway Station (Landmark: Amar Art), Bokaro, Jharkhand 829114, India",
   whatsapp: "917856815038",
   city: "Bokaro",
   state: "Jharkhand",
@@ -49,7 +49,7 @@ export const aboutInitiatives = [
   {
     title: "Where Dreams Come True",
     description:
-      "Rooms, banquet, lawn, and on-site support under one roof in Jaridih, Bokaro — hospitality with heart.",
+      "Rooms, banquet, lawn, and on-site support under one roof in Jarangdih, Bokaro — hospitality with heart.",
     icon: "palace" as const,
   },
 ] as const;
@@ -64,9 +64,12 @@ export const navLinks = [
   { label: "Contact Us", href: "#contact" },
 ] as const;
 
+/** Wedding banner (hero + about). Rename file or replace asset to bust browser cache. */
+export const weddingBannerImage = "/images/banner/kaveri-palace-wedding-banner.png";
+
 export const heroSlides = [
   {
-    src: "/images/banner/Kaveri Palace Wedding Venue Banner.png",
+    src: weddingBannerImage,
     alt: "Kaveri Palace wedding venue decorated for celebrations",
   },
   {

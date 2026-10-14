@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { site } from "@/lib/site-data";
 
 const mapQuery = encodeURIComponent(
-  "Kaveri Palace Jaridih Bazar Bokaro Jharkhand 829114",
+  "Kaveri Palace Jarangdih Bazar Bokaro Jharkhand 829114",
 );
 
 export function LocationSection() {
@@ -16,7 +16,7 @@ export function LocationSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           title="Location"
-          subtitle="Jaridih, Bokaro, Jharkhand — easy access near Jaradih Railway Station."
+          subtitle="Jarangdih, Bokaro, Jharkhand — easy access near Jarangdih Railway Station."
         />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
