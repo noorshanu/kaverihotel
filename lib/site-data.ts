@@ -245,26 +245,26 @@ export const galleryItems = [
 export const showcaseVideos = [
   {
     id: 1,
-    src: "/images/videos/kaveri-highlights-1.mp4",
-    title: "Kaveri Palace",
-    description: "Property & entrance.",
+    src: "/images/videos/kaveri-video-1.mp4",
+    title: "Kaveri Palace — property view",
+    description:
+      "A vertical walk-through of the hotel and venue as seen on arrival. Useful if you are planning a stay or function and want to see the building and surroundings before visiting.",
+    points: [
+      "Hotel + marriage lawn & banquet at one address",
+      "Jarangdih, Bokaro — near Jarangdih Railway Station",
+      "Deluxe, family, economy rooms & dormitory available",
+    ],
   },
   {
     id: 2,
-    src: "/images/videos/kaveri-highlights-2.mp4",
-    title: "Rooms",
-    description: "Guest rooms & interiors.",
-  },
-  {
-    id: 3,
-    src: "/images/videos/kaveri-highlights-3.mp4",
-    title: "Banquet & lawn",
-    description: "Wedding and function space.",
-  },
-  {
-    id: 4,
-    src: "/images/videos/kaveri-highlights-4.mp4",
-    title: "Events",
-    description: "Celebrations on site.",
+    src: "/images/videos/kaveri-video-2.mp4",
+    title: "Inside the venue",
+    description:
+      "More detail from inside the property — spaces where guests stay and where wedding or family functions are held. Tap the speaker icon on the video if you want sound.",
+    points: [
+      "Banquet hall and lawn for weddings & receptions",
+      "On-site parking and guest support",
+      "Call or WhatsApp to check dates and packages",
+    ],
   },
 ] as const;

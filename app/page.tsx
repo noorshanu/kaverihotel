@@ -10,7 +10,7 @@ import { Navbar } from "@/components/Navbar";
 import { RoomsSection } from "@/components/RoomsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-// import { VideoShowcaseSection } from "@/components/VideoShowcaseSection";
+import { VideoShowcaseSection } from "@/components/VideoShowcaseSection";
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
         <ServicesSection />
         <BanquetSection />
         <GallerySection />
-        {/* <VideoShowcaseSection /> */}
+        <VideoShowcaseSection />
         <TestimonialsSection />
         <CtaSection />
         <LocationSection />
