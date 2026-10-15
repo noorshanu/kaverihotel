@@ -23,7 +23,10 @@ The Google Script URL and secret **never** go in the browser — only server env
 
 ## Step 1 — Google Sheet
 
-1. Open [Google Sheets](https://sheets.google.com) → **Blank spreadsheet**.
+**Production sheet:** [Kaveri Palace Leads](https://docs.google.com/spreadsheets/d/1bOYeMdgoe7JIrMMmXWMH_TejkJIXmDvn_G2w198S1X8/edit)  
+Spreadsheet ID: `1bOYeMdgoe7JIrMMmXWMH_TejkJIXmDvn_G2w198S1X8` (already set in `scripts/google-sheets-webhook.gs`).
+
+1. Open the sheet above (or create a new one and update `SPREADSHEET_ID` in the script).
 2. Name it e.g. `Kaveri Palace Leads`.
 3. (Optional) Rename or create tabs exactly:
    - `Booking Inquiry`
@@ -50,6 +53,13 @@ The Google Script URL and secret **never** go in the browser — only server env
 4. **Who has access:** Anyone (anonymous callers can POST; protected by secret in JSON body).
 5. **Deploy** → authorize when prompted.
 6. Copy the **Web app URL** (must end with `/exec`).
+
+**Current deployment URL (production):**
+
+`https://script.google.com/macros/s/AKfycbz6CnvE21Kr1r74SHypcHUODERFanC3_ShW23qADLmqB_sEB9V00TS8bXjFrUfkBSqa/exec`
+
+Opening that link in a browser should show `{"ok":true,...}` after you add `doGet` and redeploy.  
+`Script function not found: doGet` means you need to paste the latest script from the repo and **Deploy → New deployment**.
 
 ---
 

@@ -1,14 +1,17 @@
 /**
  * Kaveri Palace — Google Sheets webhook
+ * Sheet: https://docs.google.com/spreadsheets/d/1bOYeMdgoe7JIrMMmXWMH_TejkJIXmDvn_G2w198S1X8/
  *
- * 1. Create a Google Sheet with tabs: "Booking Inquiry" and "Contacts" (or let script create them)
- * 2. Extensions → Apps Script → paste this file
- * 3. Set SHEETS_WEBHOOK_SECRET below (same value as server env SHEETS_WEBHOOK_SECRET)
- * 4. Deploy → New deployment → Web app → Execute as: Me → Who has access: Anyone
- * 5. Copy deployment URL → GOOGLE_SHEETS_WEBHOOK_URL on Vercel / server
+ * 1. Extensions → Apps Script → paste this file
+ * 2. Set SHEETS_WEBHOOK_SECRET (same as Vercel env SHEETS_WEBHOOK_SECRET)
+ * 3. Deploy → New deployment → Web app → Execute as: Me → Who has access: Anyone
+ * 4. Vercel: GOOGLE_SHEETS_WEBHOOK_URL = deployment /exec URL
  */
 
 const SHEETS_WEBHOOK_SECRET = "CHANGE_ME_TO_A_LONG_RANDOM_STRING";
+
+/** Kaveri Palace Leads spreadsheet */
+const SPREADSHEET_ID = "1bOYeMdgoe7JIrMMmXWMH_TejkJIXmDvn_G2w198S1X8";
 
 const TAB_BOOKING = "Booking Inquiry";
 const TAB_CONTACTS = "Contacts";
@@ -18,8 +21,19 @@ const HEADERS = {
   [TAB_CONTACTS]: ["Timestamp (IST)", "Name", "Phone", "Email", "Message", "Source"],
 };
 
+function doGet() {
+  return jsonOut({
+    ok: true,
+    message: "Kaveri Palace webhook is live. Submit forms via POST from the website.",
+  });
+}
+
 function doPost(e) {
   try {
+    if (!e || !e.postData || !e.postData.contents) {
+      return jsonOut({ ok: false, error: "Missing POST body" });
+    }
+
     const body = JSON.parse(e.postData.contents);
     if (!body.secret || body.secret !== SHEETS_WEBHOOK_SECRET) {
       return jsonOut({ ok: false, error: "Unauthorized" });
@@ -66,8 +80,12 @@ function doPost(e) {
   }
 }
 
+function getSpreadsheet() {
+  return SpreadsheetApp.openById(SPREADSHEET_ID);
+}
+
 function getOrCreateSheet(name) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = getSpreadsheet();
   let sheet = ss.getSheetByName(name);
   if (!sheet) {
     sheet = ss.insertSheet(name);
