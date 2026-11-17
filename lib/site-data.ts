@@ -24,6 +24,28 @@ export const owner = {
   image: "/images/banner/PHOTO-2026-10-13-15-59-19.jpg",
 } as const;
 
+export const managingDirector = {
+  name: "Sumit Bardhan Jaiswal",
+  role: "Managing Director (MD)",
+  image: "/sumit.jpeg",
+  phone: "+917856815038",
+  phoneDisplay: "+91 78568 15038",
+  headline: "A Perfect Destination for Hospitality, Celebrations & Grand Weddings",
+  intro:
+    "At Kaveri Palace, comfort, elegance, and thoughtful hospitality come together — for stays, weddings, and family celebrations.",
+  facilities: [
+    "Comfortable, well-maintained accommodation",
+    "Wedding and marriage celebration arrangements",
+    "Banquet and event facilities (as available)",
+    "EMI options for wedding celebrations",
+    "Guest hospitality and event packages",
+  ],
+  celebrations:
+    "We help make your daughter's wedding and special family occasions welcoming and memorable for you and your guests.",
+  vision:
+    "To be a trusted name in Bokaro for hospitality, weddings, and celebrations — through quality service, comfort, and customer satisfaction.",
+} as const;
+
 export const aboutQuote =
   "No daughter's dream wedding should remain unfinished because of financial difficulty — every celebration deserves to be historic and unforgettable.";
 

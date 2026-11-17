@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import {
   aboutInitiatives,
   aboutQuote,
+  managingDirector,
   owner,
   site,
   weddingBannerImage,
@@ -158,6 +159,71 @@ export function AboutSection() {
                 >
                   Contact Us
                 </Link>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.55, delay: 0.05 }}
+          className="mt-8 overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-gold/20"
+        >
+          <div className="grid md:grid-cols-[minmax(0,280px)_1fr]">
+            <div className="relative aspect-square min-h-[240px] md:aspect-auto md:min-h-full">
+              <Image
+                src={managingDirector.image}
+                alt={managingDirector.name}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 280px"
+              />
+            </div>
+            <div className="flex flex-col justify-center p-8 sm:p-10">
+              <p className="font-serif text-sm uppercase tracking-[0.2em] text-gold-dark">
+                Leadership
+              </p>
+              <h3 className="mt-2 font-serif text-xl font-bold leading-snug text-maroon sm:text-2xl">
+                {managingDirector.headline}
+              </h3>
+              <p className="mt-4 font-serif text-2xl font-bold text-maroon">
+                {managingDirector.name}
+              </p>
+              <p className="mt-1 text-sm font-semibold text-stone-500">
+                {managingDirector.role}
+              </p>
+              <p className="mt-4 leading-relaxed text-stone-700">{managingDirector.intro}</p>
+              <p className="mt-3 text-sm leading-relaxed text-stone-600">
+                {managingDirector.celebrations}
+              </p>
+              <ul className="mt-4 space-y-2">
+                {managingDirector.facilities.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-stone-700">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 border-l-2 border-gold/50 pl-3 text-sm italic leading-relaxed text-stone-600">
+                Our vision: {managingDirector.vision}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={`tel:${managingDirector.phone}`}
+                  className="rounded-full bg-maroon px-5 py-2.5 text-sm font-semibold text-cream transition hover:bg-maroon-dark"
+                >
+                  Call {managingDirector.phoneDisplay}
+                </a>
+                <a
+                  href={`https://wa.me/${site.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-gold bg-cream px-5 py-2.5 text-sm font-semibold text-maroon transition hover:bg-gold/15"
+                >
+                  WhatsApp
+                </a>
               </div>
             </div>
           </div>
