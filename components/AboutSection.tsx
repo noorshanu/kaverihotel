@@ -198,14 +198,6 @@ export function AboutSection() {
               <p className="mt-3 text-sm leading-relaxed text-stone-600">
                 {managingDirector.celebrations}
               </p>
-              <ul className="mt-4 space-y-2">
-                {managingDirector.facilities.map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-stone-700">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
               <p className="mt-4 border-l-2 border-gold/50 pl-3 text-sm italic leading-relaxed text-stone-600">
                 Our vision: {managingDirector.vision}
               </p>

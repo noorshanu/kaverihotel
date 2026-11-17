@@ -33,13 +33,6 @@ export const managingDirector = {
   headline: "A Perfect Destination for Hospitality, Celebrations & Grand Weddings",
   intro:
     "At Kaveri Palace, comfort, elegance, and thoughtful hospitality come together — for stays, weddings, and family celebrations.",
-  facilities: [
-    "Comfortable, well-maintained accommodation",
-    "Wedding and marriage celebration arrangements",
-    "Banquet and event facilities (as available)",
-    "EMI options for wedding celebrations",
-    "Guest hospitality and event packages",
-  ],
   celebrations:
     "We help make your daughter's wedding and special family occasions welcoming and memorable for you and your guests.",
   vision:
