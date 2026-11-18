@@ -16,6 +16,11 @@ export const site = {
   whatsapp: "917856815038",
   city: "Bokaro",
   state: "Jharkhand",
+  social: {
+    facebook: "https://www.facebook.com/profile.php?id=61596530617534",
+    instagram: "https://www.instagram.com/kaveri_palace",
+    youtube: "https://www.youtube.com/@kaveripalace-j7o",
+  },
 } as const;
 
 export const owner = {

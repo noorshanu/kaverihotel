@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { navLinks, site } from "@/lib/site-data";
 
 export function Footer() {
@@ -66,18 +66,31 @@ export function Footer() {
           </ul>
           <div className="mt-5 flex gap-3">
             <a
-              href="#"
+              href={site.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className="rounded-full bg-gold/15 p-2.5 text-gold transition hover:bg-gold hover:text-maroon-dark"
             >
               <FaFacebookF />
             </a>
             <a
-              href="#"
+              href={site.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className="rounded-full bg-gold/15 p-2.5 text-gold transition hover:bg-gold hover:text-maroon-dark"
             >
               <FaInstagram />
+            </a>
+            <a
+              href={site.social.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="rounded-full bg-gold/15 p-2.5 text-gold transition hover:bg-gold hover:text-maroon-dark"
+            >
+              <FaYoutube />
             </a>
             <a
               href={`https://wa.me/${site.whatsapp}`}
